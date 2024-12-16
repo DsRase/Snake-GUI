@@ -128,17 +128,6 @@ class User:
         self.snake = snake # список с координатами каждого участка змейки
         self.ready = "unready" # проверка готовности игрока
 
-class Lobby:
-    def __init__(self, user_1=None, user_2=None):
-        self.user_1 = user_1
-        self.user_2 = user_2
-
-    def send_other(self, user: User, message: str):
-        if user is self.user_1:
-            self.user_1.conn.send(message.encode('utf-8'))
-        else:
-            self.user_2.conn.send(message.encode('utf-8'))
-
 # Класс сегмент определяет участок тела змеи 10 на 10 (по умолчанию)
 class Segment:
     def __init__(self, x, y, canvas, color="blue"):
